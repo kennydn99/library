@@ -1,0 +1,43 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#book-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.book-btn {
+    width: 30px;
+    height: 30px;
+}
+
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(134, 134, 236);
+    padding: 0 10%;
+}
+
+.main {
+    background-color: aqua;
+}
+
+.btn-container {
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+}
+
+.books-container {
+    background-color: lightsalmon;
+}
