@@ -28,14 +28,36 @@ body, html {
     padding: 0 10%;
 }
 
-.main {
-    background-color: aqua;
-}
-
 .btn-container {
-    background-color: lightgreen;
     display: flex;
     justify-content: center;
+    padding: 16px 0;
+}
+
+.add-book-btn {
+    border: none;
+    text-decoration: none;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 12px 24px;
+}
+
+.add-book-btn:hover {
+    background-color: rgb(134, 134, 236);
+}
+
+.add-book-btn:active {
+    transform: scale(0.98); 
+    /* Scaling button to 0.98 to its original size */ 
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+    /* Lowering the shadow */ 
+}
+
+.add-book-btn span {
+    font-size: 24px;
 }
 
 .books-container {
@@ -51,6 +73,6 @@ body, html {
 
 .card {
     width: 350px;
-    height: 350px;
+    height: 400px;
     background-color: beige;
 }
