@@ -12,9 +12,18 @@ function Book(title, author, pages, read) {
     }
 }
 
+const dialog = document.querySelector('#addBookDialog');
+const addBookBtn = document.querySelector('.add-book-btn');
+const cancelBtn = document.querySelector('#closeDialog');
+addBookBtn.addEventListener('click', () => {
+    dialog.show();
+});
+cancelBtn.addEventListener('click', () => {
+    dialog.close();
+});
+
 // take user’s input and store the new book objects into an array
 function addBookToLibrary() {
-
 }
 
 //Loop through array and display each book on page
