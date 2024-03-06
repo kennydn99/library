@@ -17,7 +17,7 @@
             <div class="btn-container">
                 <button class="add-book-btn">
                     <img src="icons/book-plus.svg" alt="add-book-icon" class="book-btn">
-                    <span>Add Book</span>
+                    <span>Add New Book</span>
                 </button>
             </div>
             <dialog id="addBookDialog">
@@ -35,11 +35,11 @@
                         <input type="number" id="pages" name="book-pages" required>
                     </div>
                     <div class="form-check">
-                        <label for="read">Have you read this book?</label>
+                        <label for="read-check">Have you read this book?</label>
                         <input type="checkbox" id="read-check" name="read">
                     </div>
                     <div class="form-btns">
-                        <button type="submit">Add Book</button>
+                        <button type="submit" id="add-book-to-library-btn">Add Book</button>
                         <button id="closeDialog">Cancel</button>
                     </div>
                 </form>

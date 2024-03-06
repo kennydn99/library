@@ -20,10 +20,10 @@ const myLibrary = [book1, book2, theHobbit];
 
 
 const dialog = document.querySelector('#addBookDialog');
-const addBookBtn = document.querySelector('.add-book-btn');
+const addNewBookBtn = document.querySelector('.add-book-btn');
 const cancelBtn = document.querySelector('#closeDialog');
 
-addBookBtn.addEventListener('click', () => {
+addNewBookBtn.addEventListener('click', () => {
     dialog.show();
 });
 
@@ -32,14 +32,22 @@ cancelBtn.addEventListener('click', () => {
 });
 
 // take user’s input and store the new book objects into an array
+// let newBook;
 function addBookToLibrary() {
-    const titleField = document.querySelector('#title');
-    const authorField = document.querySelector('#author');
-    const pageNumField = document.querySelector('#pages');
-    const haveReadCheck = document.querySelector('#read-check');
-    const newBook = new Book(titleField.value, authorField.value, pageNumField.value, haveReadCheck.value);
-    console.log(newBook.info);
+    const bookTitle = document.querySelector('#title').value;
+    const bookAuthor = document.querySelector('#author').value;
+    const bookPageNum = document.querySelector('#pages').value;
+    const bookRead = document.querySelector('#read-check').checked;
+
+    const newBook = new Book(bookTitle, bookAuthor, bookPageNum, bookRead);
+    console.log(newBook);
 }
+
+const addBookBtn = document.querySelector('#add-book-to-library-btn');
+addBookBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    addBookToLibrary();
+});
 
 //Loop through array and display each book on page
 function displayBook() {
