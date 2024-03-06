@@ -1,4 +1,3 @@
-
 //Book constructor
 function Book(title, author, pages, read) {
     this.title = title;
@@ -13,11 +12,9 @@ function Book(title, author, pages, read) {
 const book1 = new Book('Dune', 'Frank Herbert', 896, false);
 const book2 = new Book("Can't Hurt Me", 'David Goggins', 364, false);
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, true);
-console.log(theHobbit.info());
 
 //Array to store book objects
 const myLibrary = [book1, book2, theHobbit];
-
 
 const dialog = document.querySelector('#addBookDialog');
 const addNewBookBtn = document.querySelector('.add-book-btn');
@@ -34,6 +31,7 @@ cancelBtn.addEventListener('click', () => {
 // take user’s input and store the new book objects into an array
 // let newBook;
 function addBookToLibrary() {
+    const bookForm = document.querySelector('#book-form');
     const bookTitle = document.querySelector('#title').value;
     const bookAuthor = document.querySelector('#author').value;
     const bookPageNum = document.querySelector('#pages').value;
@@ -41,6 +39,10 @@ function addBookToLibrary() {
 
     const newBook = new Book(bookTitle, bookAuthor, bookPageNum, bookRead);
     console.log(newBook);
+    myLibrary.push(newBook);
+
+    bookForm.reset();
+    dialog.close();
 }
 
 const addBookBtn = document.querySelector('#add-book-to-library-btn');
@@ -51,8 +53,35 @@ addBookBtn.addEventListener('click', (e) => {
 
 //Loop through array and display each book on page
 function displayBook() {
+    const bookContainer = document.querySelector('.books-container');
     for (const book of myLibrary) {
         console.log(book);
+        //create book 'card'
+        const bookCard = document.createElement("div");
+        bookCard.classList.add('card');
+        
+        const bookCardTitle = document.createElement('span');
+        bookCardTitle.textContent = book.title;
+
+        const bookCardAuthor = document.createElement('span');
+        bookCardAuthor.textContent = book.author;
+
+        const bookCardPages = document.createElement('span');
+        bookCardPages.textContent = book.pages + " pages";
+
+        const bookCardRead = document.createElement('span');
+        if (book.read) {
+            bookCardRead.textContent = "Read";
+        } else {
+            bookCardRead.textContent = "Not Read";
+        }
+        
+        bookCard.appendChild(bookCardTitle);
+        bookCard.appendChild(bookCardAuthor);
+        bookCard.appendChild(bookCardPages);
+        bookCard.appendChild(bookCardRead);
+        bookContainer.appendChild(bookCard);
+
     }
 }
 
