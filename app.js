@@ -60,16 +60,16 @@ function displayBook() {
         const bookCard = document.createElement("div");
         bookCard.classList.add('card');
         
-        const bookCardTitle = document.createElement('span');
+        const bookCardTitle = document.createElement('h1');
         bookCardTitle.textContent = book.title;
 
-        const bookCardAuthor = document.createElement('span');
-        bookCardAuthor.textContent = book.author;
+        const bookCardAuthor = document.createElement('h3');
+        bookCardAuthor.textContent = 'by ' + book.author;
 
         const bookCardPages = document.createElement('span');
         bookCardPages.textContent = book.pages + " pages";
 
-        const bookCardRead = document.createElement('span');
+        const bookCardRead = document.createElement('button');
         if (book.read) {
             bookCardRead.textContent = "Read";
         } else {
