@@ -70,16 +70,24 @@ function displayBook() {
         bookCardPages.textContent = book.pages + " pages";
 
         const bookCardRead = document.createElement('button');
+        bookCardRead.classList.add('book-card-btn');
         if (book.read) {
             bookCardRead.textContent = "Read";
+            bookCardRead.classList.add('read');
         } else {
             bookCardRead.textContent = "Not Read";
+            bookCardRead.classList.add('not-read');
         }
         
+        const removeBookBtn = document.createElement('button');
+        removeBookBtn.classList.add('book-card-btn', 'remove-btn');
+        removeBookBtn.textContent = 'Remove Book';
+
         bookCard.appendChild(bookCardTitle);
         bookCard.appendChild(bookCardAuthor);
         bookCard.appendChild(bookCardPages);
         bookCard.appendChild(bookCardRead);
+        bookCard.appendChild(removeBookBtn);
         bookContainer.appendChild(bookCard);
 
     }

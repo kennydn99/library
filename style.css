@@ -50,7 +50,7 @@ body, html {
     background-color: rgb(134, 134, 236);
 }
 
-.add-book-btn:active, .form-btns button:active {
+.add-book-btn:active, .form-btns button:active, .not-read:active, .read:active, .remove-btn:active {
     transform: scale(0.98); 
     /* Scaling button to 0.98 to its original size */ 
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
@@ -121,4 +121,43 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    border: 5px solid black;
+    border-radius: 24px;
+}
+
+.book-card-btn {
+    width: 70%;
+    height: 40px;
+    border-radius: 16px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgb(104, 104, 104);
+}
+
+.remove-btn:hover {
+    background-color: rgb(167, 166, 166);
+}
+
+h1, h3 {
+    text-align: center;
+    word-wrap: break-word;
+    margin: 0;
+}
+
+.read {
+    background-color: rgb(66, 172, 66);
+}
+
+.read:hover {
+    background-color: rgb(91, 226, 91);
+}
+
+.not-read {
+    background-color: rgb(190, 100, 100);
+}
+
+.not-read:hover {
+    background-color: rgb(236, 123, 123);
 }
