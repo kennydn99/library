@@ -47,11 +47,14 @@ function addBookToLibrary() {
 }
 
 //create bookcard function
-function createBookCard(book) {
+function createBookCard(book, index) {
     const bookContainer = document.querySelector('.books-container');
 
     const bookCard = document.createElement("div");
     bookCard.classList.add('card');
+
+    //set index
+    bookCard.dataset.index = index;
     
     const bookCardTitle = document.createElement('h1');
     bookCardTitle.textContent = book.title;
@@ -82,7 +85,7 @@ function createBookCard(book) {
     bookCard.appendChild(bookCardRead);
     bookCard.appendChild(removeBookBtn);
     bookContainer.appendChild(bookCard);
-}
+};
 
 
 const addBookBtn = document.querySelector('#add-book-to-library-btn');
@@ -94,13 +97,13 @@ addBookBtn.addEventListener('click', (e) => {
 
 //Loop through array and display each book on page
 function displayBook() {
-    for (const myBook of myLibrary) {
-        console.log(myBook);
+    for (let i = 0; i < myLibrary.length; i++) {
+        let myBook = myLibrary[i];
         //create book 'card'
         if (!myBook.hasBeenDisplayed) {
-            createBookCard(myBook);
+            createBookCard(myBook, i);
             myBook.hasBeenDisplayed = true;
         }
         
     }
-}
+};
