@@ -66,7 +66,7 @@ function createBookCard(book, index) {
     bookCardPages.textContent = book.pages + " pages";
     
     const bookCardRead = document.createElement('button');
-    bookCardRead.classList.add('book-card-btn');
+    bookCardRead.classList.add('book-card-btn', 'read-status-btn');
     if (book.read) {
         bookCardRead.textContent = "Read";
         bookCardRead.classList.add('read');
@@ -107,3 +107,8 @@ function displayBook() {
         
     }
 };
+
+const readStatusBtn = document.querySelector('.read-status-btn');
+readStatusBtn.addEventListener('click', () => {
+    console.log("read status button clicked");
+});
