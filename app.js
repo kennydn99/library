@@ -7,6 +7,9 @@ function Book(title, author, pages, read) {
     this.info = function() {
         return `${this.title} by ${this.name}, ${this.pages} pages, ${this.read}`;
     }
+    this.toggleReadStatus = function() {
+        this.read  = this.read ? false : true;
+    }
 }
 
 const book1 = new Book('Dune', 'Frank Herbert', 896, false);
@@ -66,7 +69,20 @@ function createBookCard(book, index) {
     bookCardPages.textContent = book.pages + " pages";
     
     const bookCardRead = document.createElement('button');
-    bookCardRead.classList.add('book-card-btn', 'read-status-btn');
+    bookCardRead.classList.add('book-card-btn');
+    bookCardRead.addEventListener('click', () => {
+        book.toggleReadStatus();
+        if (book.read) {
+            bookCardRead.textContent = "Read";
+            bookCardRead.classList.add('read');
+            bookCardRead.classList.remove('not-read');
+        } else {
+            bookCardRead.textContent = "Not Read";
+            bookCardRead.classList.add('not-read');
+            bookCardRead.classList.remove('read');
+        }
+    });
+
     if (book.read) {
         bookCardRead.textContent = "Read";
         bookCardRead.classList.add('read');
@@ -78,6 +94,9 @@ function createBookCard(book, index) {
     const removeBookBtn = document.createElement('button');
     removeBookBtn.classList.add('book-card-btn', 'remove-btn');
     removeBookBtn.textContent = 'Remove Book';
+    removeBookBtn.addEventListener('click', () => {
+        console.log("remove button clicked");
+    });
     
     bookCard.appendChild(bookCardTitle);
     bookCard.appendChild(bookCardAuthor);
@@ -107,8 +126,3 @@ function displayBook() {
         
     }
 };
-
-const readStatusBtn = document.querySelector('.read-status-btn');
-readStatusBtn.addEventListener('click', () => {
-    console.log("read status button clicked");
-});
