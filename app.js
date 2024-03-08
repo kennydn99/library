@@ -94,9 +94,6 @@ function createBookCard(book, index) {
     const removeBookBtn = document.createElement('button');
     removeBookBtn.classList.add('book-card-btn', 'remove-btn');
     removeBookBtn.textContent = 'Remove Book';
-    removeBookBtn.addEventListener('click', () => {
-        console.log("remove button clicked");
-    });
     
     bookCard.appendChild(bookCardTitle);
     bookCard.appendChild(bookCardAuthor);
@@ -104,6 +101,12 @@ function createBookCard(book, index) {
     bookCard.appendChild(bookCardRead);
     bookCard.appendChild(removeBookBtn);
     bookContainer.appendChild(bookCard);
+
+    removeBookBtn.addEventListener('click', () => {
+        let parent = removeBookBtn.parentElement;
+        parent.remove();
+        myLibrary.splice(parent.dataset.index, 1);
+    });
 };
 
 
