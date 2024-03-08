@@ -34,18 +34,15 @@ cancelBtn.addEventListener('click', () => {
 // take user’s input and store the new book objects into an array
 // let newBook;
 function addBookToLibrary() {
-    const bookForm = document.querySelector('#book-form');
     const bookTitle = document.querySelector('#title').value;
     const bookAuthor = document.querySelector('#author').value;
     const bookPageNum = document.querySelector('#pages').value;
     const bookRead = document.querySelector('#read-check').checked;
 
     const newBook = new Book(bookTitle, bookAuthor, bookPageNum, bookRead);
-    console.log(newBook);
     newBook.hasBeenDisplayed = false;
     myLibrary.push(newBook);
 
-    bookForm.reset();
     dialog.close();
 }
 
@@ -112,9 +109,16 @@ function createBookCard(book, index) {
 
 const addBookBtn = document.querySelector('#add-book-to-library-btn');
 addBookBtn.addEventListener('click', (e) => {
+    const bookForm = document.querySelector('#book-form'); 
+    if (!bookForm.checkValidity()) {
+        return;
+    }
+
     e.preventDefault();
     addBookToLibrary();
+    bookForm.reset();
     displayBook();
+    
 });
 
 //Loop through array and display each book on page
@@ -126,6 +130,5 @@ function displayBook() {
             createBookCard(myBook, i);
             myBook.hasBeenDisplayed = true;
         }
-        
     }
 };
