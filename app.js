@@ -1,14 +1,32 @@
 //Book constructor
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function() {
+// function Book(title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+//     this.info = function() {
+//         return `${this.title} by ${this.name}, ${this.pages} pages, ${this.read}`;
+//     }
+//     this.toggleReadStatus = function() {
+//         this.read  = this.read ? false : true;
+//     }
+// }
+
+//class refactorization
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    info() {
         return `${this.title} by ${this.name}, ${this.pages} pages, ${this.read}`;
     }
-    this.toggleReadStatus = function() {
-        this.read  = this.read ? false : true;
+
+    toggleReadStatus() {
+        this.read = !this.read;
     }
 }
 
