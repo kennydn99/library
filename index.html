@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
     <script defer src="app.js"></script>
-    <link rel="stylesheet" href="https://fonts.google.com/specimen/Asul">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Asul" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Library</h1>
-            <img src="icons/book.svg" alt="book-icon" id="book-logo">
+      <div class="header">
+        <h1>Library</h1>
+        <img src="icons/book.svg" alt="book-icon" id="book-logo" />
+      </div>
+      <div class="main">
+        <div class="btn-container">
+          <button class="add-book-btn">
+            <img
+              src="icons/book-plus.svg"
+              alt="add-book-icon"
+              class="book-btn"
+            />
+            <span>Add New Book</span>
+          </button>
         </div>
-        <div class="main">
-            <div class="btn-container">
-                <button class="add-book-btn">
-                    <img src="icons/book-plus.svg" alt="add-book-icon" class="book-btn">
-                    <span>Add New Book</span>
-                </button>
+        <dialog id="addBookDialog">
+          <form action="" id="book-form" novalidate>
+            <div class="form-field">
+              <label for="title">Title:</label>
+              <input type="text" id="title" name="book-title" required />
+              <span class="error" aria-live="polite"></span>
             </div>
-            <dialog id="addBookDialog">
-                <form action="" id="book-form">
-                    <div class="form-field">
-                        <label for="title">Title:</label>
-                        <input type="text" id="title" name="book-title" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="author">Author:</label>
-                        <input type="text" id="author" name="book-author" required>
-                    </div>
-                    <div class="form-num">
-                        <label for="pages">Pages:</label>
-                        <input type="number" id="pages" name="book-pages" required>
-                    </div>
-                    <div class="form-check">
-                        <label for="read-check">Have you read this book?</label>
-                        <input type="checkbox" id="read-check" name="read">
-                    </div>
-                    <div class="form-btns">
-                        <button type="submit" id="add-book-to-library-btn">Add Book</button>
-                        <button id="closeDialog">Cancel</button>
-                    </div>
-                </form>
-            </dialog>
-            <div class="books-container"></div>
-        </div>
+            <div class="form-field">
+              <label for="author">Author:</label>
+              <input type="text" id="author" name="book-author" required />
+              <span class="error" aria-live="polite"></span>
+            </div>
+            <div class="form-num">
+              <label for="pages">Pages:</label>
+              <input
+                type="number"
+                id="pages"
+                name="book-pages"
+                required
+                min="1"
+              />
+            </div>
+            <span class="pageErr error" aria-live="polite"></span>
+            <div class="form-check">
+              <label for="read-check">Have you read this book?</label>
+              <input type="checkbox" id="read-check" name="read" />
+            </div>
+            <div class="form-btns">
+              <button type="submit" id="add-book-to-library-btn">
+                Add Book
+              </button>
+              <button id="closeDialog">Cancel</button>
+            </div>
+          </form>
+        </dialog>
+        <div class="books-container"></div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
